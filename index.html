@@ -3,45 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>Phukao Prommolmard</title>
     <link rel="stylesheet" href="css/style.css">
-
-
-    
 </head>
 <body>
     <header>
         <div class="portrait">
-            <img src="path-to-your-image.jpg" alt="Portrait of That (Phukao) Prommolmard">
+            <img src="images/portrait.jpeg" alt="Portrait of That (Phukao) Prommolmard">
         </div>
-        <h1>About Me</h1>
-        <!-- rest of the header content -->
+        <nav>
+            <ul>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <section id="about-me">
-            <h2>About Me</h2>
-            <p><strong>Name:</strong> That (Phukao) Prommolmard</p>
-            <p><strong>Education:</strong> Grinnell College ’24, Studying Computer Science and Psychology</p>
-            <p><strong>Career Aspiration:</strong> Aspiring cognitive psychology researcher</p>
-            <p><strong>Current Role:</strong> Supporting student music at Grinnell College through work at Freesound</p>
-            <p><strong>Hobbies:</strong> Writing music and cooking</p>
-        </section>
+        <section id="summary">
+            <h2>Who I Am</h2>
+            <p>
+                I'm That (Phukao) Prommolmard, a Computer Science and Psychology student at Grinnell College ('24), passionate about cognitive psychology research. At present, I contribute to the vibrant student music scene at Freesound. Off-duty, I'm either composing music or exploring culinary arts.
+            </p>
+            <h2>What I Do</h2>
+            <p>
+                My technical toolkit includes Python, Java, JavaScript, C, and C++, complemented by fluency in Thai and English, conversational Danish, and literacy in German and Russian. Music is my universal language, as I lead a band of over 10 talents, Badphayak. Follow us on Instagram <a href="https://www.instagram.com/badphayak" target="_blank">@badphayak</a>.
+            </p>
+        </section>  
         
-        <section id="skills">
-            <h2>Skills</h2>
-            <p><strong>Programming Languages:</strong> Python, Java, JavaScript, C, C++</p>
-            <p><strong>Languages:</strong> 
-                Fluent in Thai and English, conversational in Danish, proficient in reading/writing German and Russian
-            </p>
-            <p><strong>Music:</strong> 
-                Multi-instrumentalist and band leader for Badphayak, featuring over 10 talented musicians. 
-                Follow us on Instagram <a href="https://www.instagram.com/badphayak" target="_blank">@badphayak</a>.
-            </p>
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project">
+                <img src="images/CTLA-project.png" alt="CTLA Learning Outcome Visualizer Thumbnail" class="project-image">
+                <h3>CTLA Learning Outcome Visualizer</h3>
+                <p>A collaborative project with the CTLA at Grinnell College, this visualizer turns survey data into visual representations of College Wide Learning Outcomes, showcasing the power of R for data analysis and visualization.</p>
+                <a href="https://github.com/CSC322-Grinnell/CTLA" target="_blank">View Project on GitHub</a>
+            </div>
+            
+            <div class="project">
+                <img src="images/Music-project.png" alt="Music Trends Analysis App Thumbnail" class="project-image">
+                <h3>Music Trends Analysis App</h3>
+                <p>This individual project is an interactive Shiny app that analyzes and visualizes music genre trends using Billboard chart data. It features genre trend animations, a lyrics word cloud, and song length histograms, all developed in R.</p>
+                <a href="https://github.com/Thatphukao/CSC324-IndividualProject" target="_blank">View Project on GitHub</a>
+            </div>
         </section>
         
     </main>
     <footer>
-        <!-- Footer content -->
+        <div class="footer-content">
+            <p>&copy; 2023 That (Phukao) Prommolmard. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+            <ul class="social-media">
+                <li><a href="https://instagram.com/tp.mountain" target="_blank">Instagram</a></li>
+                <li><a href="https://github.com/Thatphukao" target="_blank">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/that-prommolmard-a03960111/" target="_blank">linkedin</a></li>
+            </ul>
+        </div>
     </footer>
 </body>
 </html>
