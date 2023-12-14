@@ -5,9 +5,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-main {
-    padding: 20px 40px; /* top and bottom padding of 20px; left and right padding of 40px */
-}
+
 
 
 header {
@@ -78,10 +76,15 @@ header nav ul li a:focus {
     margin: 0;
 }
 
+.summary {
+    margin: 40px auto; /* top and bottom padding of 20px; left and right padding of 40px */
+}
+
 #projects {
     margin: 40px auto;
     max-width: 800px; /* Adjust the width as necessary */
 }
+
 
 .project {
     margin-bottom: 30px;
