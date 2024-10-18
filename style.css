@@ -1,228 +1,96 @@
-/* Importing Roboto Font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Load custom font */
+@font-face {
+    font-family: 'Bodoni72';
+    src: url('images/Bodoni72.ttc') format('truetype');
+}
 
+/* General body styling with a fixed background image */
 body {
-    font-family: 'Roboto', sans-serif;
-}
-
-
-
-
-header {
-    background-color: #f0f0f0; /* Light grey for contrast */
-    text-align: center;
-    padding: 20px 0;
-}
-
-header nav ul {
+    margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif; /* Fallback font */
+    background-image: url('images/background.png'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full height of the viewport */
+}
+
+/* Ensure main content stretches to fill available space */
+header, .name-container {
+    flex: 1;
+}
+
+/* Header gradient background */
+header {
+    background: linear-gradient(to bottom, rgb(86, 86, 86), rgba(255, 255, 255, 0)); /* Black to transparent */
+    padding: 1rem 0;
+    text-align: center;
+    position: relative;
+    font-family: 'Bodoni72', Arial, sans-serif; /* Custom font for header */
+}
+
+/* Navigation bar styles */
+nav ul {
     list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
-header nav ul li {
-    display: inline;
-    margin: 0 15px;
+nav ul li {
+    flex: 1;
 }
 
-header nav ul li a {
+nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 20px;
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 18px;
+    color: #fff;
+    background-color: transparent;
+    font-size: 1.2rem;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Added color transition */
+    outline: none;
 }
 
-header nav ul li a:hover,
-header nav ul li a:focus {
-    color: #007bff; /* Change this color to suit your design */
-    text-decoration: underline;
+/* Feathered hover effect + black text */
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light hover color */
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); /* Feathered shadow */
+    color: #000; /* Text turns black on hover */
+    outline: none;
 }
 
-.portrait {
+/* Centering the name container and moving it higher */
+.name-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-}
-
-.portrait img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover; /* Ensures the image covers the area, could be useful for non-square images */
-}
-
-#interests {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    justify-items: center;
-}
-
-.interest-item {
+    align-items: center; /* Vertically centers content */
     text-align: center;
+    padding: 20px 0; /* Reduced padding to move name higher */
+    flex: 1;
 }
 
-.interest-item img {
-    width: 100%;
-    max-width: 200px;
+.name-image {
+    width: 75%;
     height: auto;
-    border-radius: 10px; /* Optional: rounds the corners of the images */
-    margin-bottom: 10px;
 }
 
-.interest-item p {
-    font-size: 16px;
-    color: #666;
-    margin: 0;
-}
-
-.summary {
-    margin: 40px auto; /* top and bottom padding of 20px; left and right padding of 40px */
-}
-
-#projects {
-    margin: 40px auto;
-    max-width: 800px; /* Adjust the width as necessary */
-}
-
-
-.project {
-    margin-bottom: 30px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    overflow: hidden; /* Ensures the content is contained within the borders */
-}
-
-.project-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    border-radius: 5px; /* Optional: rounds the corners of the images */
-}
-
-.project h3 {
-    margin-top: 0;
-}
-
-.project p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-
-.project a, #contact-info a {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #0095f6; /* New shade of blue */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.project a:hover, #contact-info a:hover {
-    background-color: #0077cc; /* Darker shade for hover effect */
-}
-
-
-#skills-and-interests {
-    margin: 40px 0;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-#skills-and-interests h2 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-#skills-and-interests ul {
-    list-style: none;
-    padding: 0;
-}
-
-#skills-and-interests ul li {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
-}
-
-#skills-and-interests ul li:before {
-    content: '•';
-    color: #007bff; /* You can change this color to match your site's theme */
-    font-size: 20px;
-    position: absolute;
-    left: 0;
-}
-
-.active {
-    color: #007bff; /* Highlight color for the active nav link */
-    font-weight: bold;
-}
-
-#contact-info {
-    margin: 40px auto;
-    max-width: 800px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-#contact-info h2 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-#contact-info ul {
-    list-style: none;
-    padding: 0;
-}
-
-#contact-info ul li {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-
+/* Footer always at the bottom */
 footer {
-    background-color: #333;
+    background: linear-gradient(to top, rgb(116, 116, 116), rgba(255, 255, 255, 0)); /* Transparent to black */
     color: #fff;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-}
-
-.footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-links, .social-media {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: inline-block; /* Adjust as necessary */
-}
-
-.footer-links li, .social-media li {
-    display: inline;
-    margin-right: 15px;
-}
-
-.footer-links a, .social-media a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-links a:hover, .social-media a:hover {
-    text-decoration: underline;
+    padding: 1rem 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    font-family: 'Bodoni72', Arial, sans-serif; /* Custom font for footer */
 }
