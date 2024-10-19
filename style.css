@@ -83,6 +83,26 @@ nav ul li a:hover {
     height: auto;
 }
 
+/* Media query for smaller screens (phones, tablets, etc.) */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 0; /* Reduce padding */
+    }
+
+    nav ul li a {
+        font-size: 1rem; /* Smaller font size for navigation links */
+        padding: 15px;   /* Smaller padding for navigation links */
+    }
+
+    .name-container {
+        padding: 10px 0; /* Reduce padding for name container */
+    }
+
+    .name-image {
+        width: 90%; /* Make the name image larger relative to the smaller screen */
+    }
+}
+
 /* Footer always at the bottom */
 footer {
     background: linear-gradient(to top, rgb(116, 116, 116), rgba(255, 255, 255, 0)); /* Transparent to black */
