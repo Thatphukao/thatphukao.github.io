@@ -1,9 +1,3 @@
-/* Load custom font */
-@font-face {
-    font-family: 'Bodoni72';
-    src: url('images/Bodoni72.ttc') format('truetype');
-}
-
 /* General body styling with a fixed background image */
 body {
     margin: 0;
@@ -19,21 +13,14 @@ body {
     min-height: 100vh; /* Full height of the viewport */
 }
 
-/* Ensure main content stretches to fill available space */
-header, .name-container {
-    flex: 1;
-}
-
-/* Header gradient background */
 header {
     background: linear-gradient(to bottom, rgb(86, 86, 86), rgba(255, 255, 255, 0)); /* Black to transparent */
-    padding: 1rem 0;
     text-align: center;
     position: relative;
     font-family: 'Bodoni72', Arial, sans-serif; /* Custom font for header */
+    height: 15vh; /* Set header height to 15% of the viewport height */
 }
 
-/* Navigation bar styles */
 nav ul {
     list-style: none;
     display: flex;
@@ -56,11 +43,10 @@ nav ul li a {
     background-color: transparent;
     font-size: 1.2rem;
     border: none;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Added color transition */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     outline: none;
 }
 
-/* Feathered hover effect + black text */
 nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Light hover color */
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); /* Feathered shadow */
@@ -68,49 +54,28 @@ nav ul li a:hover {
     outline: none;
 }
 
-/* Centering the name container and moving it higher */
+/* Ensure the container has dimensions */
 .name-container {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Vertically centers content */
-    text-align: center;
-    padding: 20px 0; /* Reduced padding to move name higher */
-    flex: 1;
+    position: relative;
 }
 
-.name-image {
-    width: 75%;
-    height: auto;
+/* All images should be absolutely positioned within the container */
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;    
 }
 
-/* Media query for smaller screens (phones, tablets, etc.) */
-@media (max-width: 768px) {
-    header {
-        padding: 0.5rem 0; /* Reduce padding */
-    }
 
-    nav ul li a {
-        font-size: 1rem; /* Smaller font size for navigation links */
-        padding: 15px;   /* Smaller padding for navigation links */
-    }
-
-    .name-container {
-        padding: 10px 0; /* Reduce padding for name container */
-    }
-
-    .name-image {
-        width: 90%; /* Make the name image larger relative to the smaller screen */
-    }
-}
-
-/* Footer always at the bottom */
+/* Footer styling */
 footer {
-    background: linear-gradient(to top, rgb(116, 116, 116), rgba(255, 255, 255, 0)); /* Transparent to black */
+    background: linear-gradient(to top, rgb(122, 122, 122), rgba(255, 255, 255, 0)); /* Transparent to black */
     color: #fff;
     text-align: center;
     padding: 1rem 0;
     width: 100%;
+    font-family: 'Bodoni72', Arial, sans-serif; /* Custom font for footer */
     position: relative;
     bottom: 0;
-    font-family: 'Bodoni72', Arial, sans-serif; /* Custom font for footer */
 }
