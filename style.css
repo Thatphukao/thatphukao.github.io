@@ -108,8 +108,9 @@ nav ul li a:hover {
 /* Ensure the container has dimensions */
 .name-container {
     flex: 1;
-    position: relative;
+    height: 80vh;
     width: auto;
+    position: relative;
     display: flex; /* Vertically centers the image */
 }
 
