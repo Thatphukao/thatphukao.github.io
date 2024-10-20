@@ -74,8 +74,8 @@ nav ul li a:hover {
 .name-container {
     flex: 1;
     position: relative;
-    width: 100%;
-    height: 100%;
+    height: 80vh;
+    width: auto;
     display: flex;
     justify-content: center; /* Horizontally centers the image */
     align-items: center; /* Vertically centers the image */
@@ -88,11 +88,15 @@ nav ul li a:hover {
     left: 0;
 }
 
+.main-content{
+    flex: 1;
+}
+
 
 /* Footer styling */
 footer {
     background: linear-gradient(to top, rgb(122, 122, 122, 0.5), rgba(255, 255, 255, 0)); /* Transparent to black */
-    color: #fff;
+    color: #000000;
     text-align: center;
     padding: 1rem 0;
     width: 100%;
@@ -100,4 +104,13 @@ footer {
     position: relative;
     bottom: 0;
     height: 10vh;
+    align-items: center;
+}
+
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
