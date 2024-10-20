@@ -11,19 +11,83 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html"><img src="images/homeButton.png"></a></li>
-                <li><a href="research.html"><img src="images/researchButton.png"></a></li>
-                <li><a href="contact.html"><img src="images/contactButton.png"> me</a></li>
+                <li><a href="index.html"><img src="images/homeButton.png" alt="Home"></a></li>
+                <li><a href="research.html"><img src="images/researchButton.png" alt="Research"></a></li>
+                <li><a href="contact.html"><img src="images/contactButton.png" alt="Contact"></a></li>
             </ul>
         </nav>
     </header>
 
     <div class="main-content">
-        <p>Welcome to the Designs page. I will showcase some work here soon! 10/18/24.</p>
+        <h2>Art Gallery</h2>
+
+        <!-- Logos Section -->
+        <section class="gallery-section">
+            <h3>Logos</h3>
+            <div class="gallery-grid">
+                <figure>
+                    <img src="images/designs/3DFreesound.png" alt="3D Freesound Logo" class="gallery-image">
+                    <figcaption>Spring 2024 Design</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/designs/mockup.png" alt="Sweater Mockup" class="gallery-image">
+                    <figcaption>Spring 2024 Mockup</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/designs/FreesoundMetalLogo.png" alt="Freesound Metal Logo" class="gallery-image">
+                    <figcaption>Fall 2024 Design</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/designs/MetalMockUp.png" alt="Metal Mockup" class="gallery-image">
+                    <figcaption>Fall 2024 Mockup</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Posters Section -->
+        <section class="gallery-section">
+            <h3>Posters</h3>
+            <div class="gallery-grid">
+                <figure>
+                    <img src="images/designs/poster1.png" alt="Poster 1" class="gallery-image">
+                    <figcaption>Poster 1</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/designs/OpenJamPoster.jpg" alt="Open Jam Poster" class="gallery-image">
+                    <figcaption>Open Jam Poster</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Half Posters Section -->
+        <section class="gallery-section">
+            <h3>Half Posters</h3>
+            <div class="gallery-grid">
+                <figure>
+                    <img src="images/designs/halfPoster1.png" alt="Half Poster 1" class="gallery-image">
+                    <figcaption>Half Poster 1</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/designs/halfPoster2.png" alt="Half Poster 2" class="gallery-image">
+                    <figcaption>Half Poster 2</figcaption>
+                </figure>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for enlarged image view -->
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div class="caption"></div>
+        <div class="prev">&#10094;</div>
+        <div class="next">&#10095;</div>
     </div>
 
     <footer>
         <p>&copy; 2024 That (Phukao) Prommolmard. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

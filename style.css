@@ -1,36 +1,70 @@
-/* General body styling with a fixed background image */
-body {
+/* Ensure html and body take full height of the viewport */
+html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif; /* Fallback font */
+    height: 100%; /* Full height of the viewport */
+    display: flex;
+    flex-direction: column; /* Make body a flex container */
+}
+
+/* General body styling with a fixed background image */
+body {
     background-image: url('images/background.png'); /* Background image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Full height of the viewport */
 }
+
+/* Main content area */
+.main-content {
+    padding: 20px;
+    flex: 1;
+    align-items: center;
+}
+
+/* Section for gallery content */
+.gallery-section {
+    margin-bottom: 40px;
+}
+
+/* Gallery grid styling */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Spacing between images */
+}
+
+/* Individual figure styling */
+figure {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+figure img {
+    width: 100%;  /* Ensure images are responsive */
+    height: auto;
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds subtle shadow */
+}
+
+figcaption {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
 
 header {
     background: linear-gradient(to bottom, rgb(86, 86, 86, 0.4), rgba(255, 255, 255, 0)); /* Black to transparent */
     text-align: center;
-    position: relative;
     font-family: 'Bodoni72', Arial, sans-serif; /* Custom font for header */
     height: 10vh;
 }
 
-nav ul li a img {
-    height: 50px; /* Set the width you want for your buttons */
-    width: auto;
-    transition: transform 0.3s ease; /* Add a smooth hover effect */
-}
-
-nav ul li a img:hover {
-    transform: scale(1.1); /* Slightly enlarge the button on hover */
-}
-
+/* Styling for navigation buttons */
 nav ul {
     list-style: none;
     display: flex;
@@ -45,41 +79,38 @@ nav ul li {
     text-align: center; /* Center images horizontally within their container */
 }
 
-
-nav ul li {
-    flex: 1;
+nav ul li a img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease; /* Add a smooth hover effect */
 }
 
+nav ul li a img:hover {
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+/* Styling for navigation links */
 nav ul li a {
     display: block;
     text-align: center;
     padding: 20px;
     text-decoration: none;
-    color: #fff;
     background-color: transparent;
     font-size: 1.2rem;
-    border: none;
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    outline: none;
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Light hover color */
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); /* Feathered shadow */
-    color: #000; /* Text turns black on hover */
-    outline: none;
-    height: 75%;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
 }
 
 /* Ensure the container has dimensions */
 .name-container {
     flex: 1;
     position: relative;
-    height: 80vh;
     width: auto;
-    display: flex;
-    justify-content: center; /* Horizontally centers the image */
-    align-items: center; /* Vertically centers the image */
+    display: flex; /* Vertically centers the image */
 }
 
 /* All images should be absolutely positioned within the container */
@@ -89,29 +120,83 @@ nav ul li a:hover {
     left: 0;
 }
 
-.main-content{
-    flex: 1;
-}
-
-
 /* Footer styling */
 footer {
-    background: linear-gradient(to top, rgb(122, 122, 122, 0.5), rgba(255, 255, 255, 0)); /* Transparent to black */
+    background: linear-gradient(to top, rgb(122, 122, 122, 0.3), rgba(255, 255, 255, 0)); /* Transparent to black */
     color: #000000;
     text-align: center;
     padding: 1rem 0;
     width: 100%;
     font-family: 'Bodoni72', Arial, sans-serif; /* Custom font for footer */
-    position: relative;
-    bottom: 0;
     height: 10vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.vertical-align {
-    position: relative;
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.caption {
+    text-align: center;
+    color: #ccc;
+    padding: 10px;
+    font-size: 18px;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    user-select: none;
+    -webkit-user-select: none;
+    transform: translate(0, -50%);
+    transition: 0.6s ease;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
