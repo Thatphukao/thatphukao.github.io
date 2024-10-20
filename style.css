@@ -23,6 +23,7 @@ header {
 
 nav ul li a img {
     height: 50px; /* Set the width you want for your buttons */
+    width: auto;
     transition: transform 0.3s ease; /* Add a smooth hover effect */
 }
 
