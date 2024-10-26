@@ -3,9 +3,9 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif; /* Fallback font */
-    height: 100%; /* Full height of the viewport */
     display: flex;
     flex-direction: column; /* Make body a flex container */
+    min-height: 100vh; /* Ensure minimum height of 100% viewport height */
 }
 
 /* General body styling with a fixed background image */
@@ -19,67 +19,54 @@ body {
 
 /* Section for gallery content */
 .gallery-section {
-    margin-bottom: 40px;
+    margin-bottom: 60px; /* Adds space between sections */
+}
+
+.gallery-section h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
 }
 
 /* Gallery grid styling */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid layout */
-    gap: 20px; /* Spacing between images */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds space between grid items */
+    justify-content: center;
 }
 
 /* Individual figure styling */
 figure {
     margin: 0;
-    padding: 0;
     text-align: center;
+    width: calc(50% - 10px); /* Two images per row on larger screens */
+    max-width: 300px; /* Maximum width for each figure */
 }
 
-figure img {
-    width: 100%;  /* Ensure images are responsive */
+.gallery-image {
+    width: 100%;
     height: auto;
-    border-radius: 8px; /* Optional: Adds rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds subtle shadow */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
 }
 
 figcaption {
     margin-top: 10px;
-    font-size: 1rem;
-    color: #333;
-}
-
-/* Move the navigation buttons to the bottom on mobile */
-@media (max-width: 768px) {
-    header {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: auto;
-        background: linear-gradient(to top, rgb(86, 86, 86, 0.8), rgba(255, 255, 255, 0.2)); /* Updated background */
-    }
-
-    nav ul {
-        display: flex;
-        justify-content: space-around; /* Space out the buttons evenly */
-        padding: 10px 0;
-    }
-
-    nav ul li a img {
-        height: 40px; /* Smaller button size for mobile */
-        width: auto;
-    }
-
-    nav ul li {
-        flex-grow: 1; /* Allow buttons to grow or shrink as needed */
-    }
+    font-size: 14px;
+    color: #666;
 }
 
 header {
     background: linear-gradient(to bottom, rgb(86, 86, 86, 0.4), rgba(255, 255, 255, 0)); /* Black to transparent */
     text-align: center;
     font-family: 'Bodoni72', Arial, sans-serif; /* Custom font for header */
-    height: 10vh;
 }
 
 /* Styling for navigation buttons */
@@ -125,11 +112,9 @@ nav ul li a:hover {
 
 /* Main content area */
 .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    flex: 1;
-    display: flex;           /* Make the .main-content a flex container */
-    justify-content: right; /* Horizontally center the content */
-    align-items: center;     /* Vertically center the content */
 }
 
 /* Ensure the container has dimensions */
@@ -138,9 +123,8 @@ nav ul li a:hover {
     height: auto;
     display: flex;
     justify-content: center; /* Center the image horizontally if needed */
-    align-items: center;     /* Center the image vertically */
+    align-items: center; /* Center the image vertically */
 }
-
 
 /* All images should be absolutely positioned within the container */
 .image {
@@ -157,12 +141,11 @@ footer {
     padding: 1rem 0;
     width: 100%;
     font-family: 'Bodoni72', Arial, sans-serif; /* Custom font for footer */
-    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: auto; /* Push footer to the bottom */
 }
-
 
 /* Modal styling */
 .modal {
@@ -176,6 +159,12 @@ footer {
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
 }
 
 .modal-content {
@@ -183,6 +172,12 @@ footer {
     display: block;
     max-width: 80%;
     max-height: 80%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content.show {
+    opacity: 1;
 }
 
 .caption {
@@ -228,4 +223,70 @@ footer {
 
 .prev:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    figure {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-content p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-5px);
+}
+
+.contact-item i {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.contact-item span {
+    font-size: 1em;
+}
+
+@media (max-width: 480px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 }

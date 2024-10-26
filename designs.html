@@ -75,19 +75,69 @@
         </section>
     </div>
 
-    <!-- Modal for enlarged image view -->
-    <div id="modal" class="modal">
+    <div id="imageModal" class="modal">
         <span class="close">&times;</span>
-        <img class="modal-content" id="modal-img">
-        <div class="caption"></div>
-        <div class="prev">&#10094;</div>
-        <div class="next">&#10095;</div>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
     </div>
 
     <footer>
         <p>&copy; 2024 That (Phukao) Prommolmard. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("modalImage");
+        var captionText = document.getElementById("caption");
+        var images = document.getElementsByClassName("gallery-image");
+
+        // Function to open the modal
+        function openModal(img) {
+            modal.style.display = "block";
+            setTimeout(() => {
+                modal.classList.add('show');
+                modalImg.classList.add('show');
+            }, 10);
+            modalImg.src = img.src;
+            captionText.innerHTML = img.alt;
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            modal.classList.remove('show');
+            modalImg.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+        }
+
+        // Add click event to all gallery images
+        for (var i = 0; i < images.length; i++) {
+            images[i].onclick = function() {
+                openModal(this);
+            }
+        }
+
+        // Close the modal when clicking on the close button
+        document.getElementsByClassName("close")[0].onclick = closeModal;
+
+        // Close the modal when clicking outside the image
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close the modal when clicking on the image itself
+        modalImg.onclick = closeModal;
+
+        // Close the modal when pressing the Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
