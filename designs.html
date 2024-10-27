@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Designs - Phukao</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        h2, h3, p{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,7 +25,8 @@
     </header>
 
     <div class="main-content">
-        <h2>Art Gallery</h2>
+        <h2>Designs</h2>
+        <p>Here are some of my designs that I have worked on for Freesound.</p>
 
         <!-- Logos Section -->
         <section class="gallery-section">
@@ -27,19 +34,19 @@
             <div class="gallery-grid">
                 <figure>
                     <img src="images/designs/3DFreesound.png" alt="3D Freesound Logo" class="gallery-image">
-                    <figcaption>Spring 2024 Design</figcaption>
+                    <figcaption>Spring 2024 Design. Made with Blender.</figcaption>
                 </figure>
                 <figure>
                     <img src="images/designs/mockup.png" alt="Sweater Mockup" class="gallery-image">
-                    <figcaption>Spring 2024 Mockup</figcaption>
+                    <figcaption>Spring 2024 Merch Mockup</figcaption>
                 </figure>
                 <figure>
                     <img src="images/designs/FreesoundMetalLogo.png" alt="Freesound Metal Logo" class="gallery-image">
-                    <figcaption>Fall 2024 Design</figcaption>
+                    <figcaption>Fall 2024 Design. Made with Illustrator and Photoshop.</figcaption>
                 </figure>
                 <figure>
                     <img src="images/designs/MetalMockUp.png" alt="Metal Mockup" class="gallery-image">
-                    <figcaption>Fall 2024 Mockup</figcaption>
+                    <figcaption>Fall 2024 Merch Mockup</figcaption>
                 </figure>
             </div>
         </section>
@@ -50,11 +57,11 @@
             <div class="gallery-grid">
                 <figure>
                     <img src="images/designs/poster1.png" alt="Poster 1" class="gallery-image">
-                    <figcaption>Poster 1</figcaption>
+                    <figcaption>Fall 2023 Poster. Made with Illustrator.</figcaption>
                 </figure>
                 <figure>
                     <img src="images/designs/OpenJamPoster.jpg" alt="Open Jam Poster" class="gallery-image">
-                    <figcaption>Open Jam Poster</figcaption>
+                    <figcaption>Fall 2023Open Jam Poster. Made with Photoshop.</figcaption>
                 </figure>
             </div>
         </section>
@@ -65,11 +72,11 @@
             <div class="gallery-grid">
                 <figure>
                     <img src="images/designs/halfPoster1.png" alt="Half Poster 1" class="gallery-image">
-                    <figcaption>Half Poster 1</figcaption>
+                    <figcaption>Handouts for Freesound events. Made with Photoshop.</figcaption>
                 </figure>
                 <figure>
                     <img src="images/designs/halfPoster2.png" alt="Half Poster 2" class="gallery-image">
-                    <figcaption>Half Poster 2</figcaption>
+                    <figcaption>Handouts for Freesound events. Made with Photoshop.</figcaption>
                 </figure>
             </div>
         </section>
@@ -81,8 +88,18 @@
         <div id="caption"></div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 That (Phukao) Prommolmard. All rights reserved.</p>
+    <div id="mobileNavTab" class="mobile-nav-tab">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <footer id="mobileFooter" class="mobile-footer">
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="index.html"><img src="images/homeButton.png" alt="Home"></a></li>
+                <li><a href="research.html"><img src="images/researchButton.png" alt="Research"></a></li>
+                <li><a href="contact.html"><img src="images/contactButton.png" alt="Contact"></a></li>
+            </ul>
+        </nav>
     </footer>
 
     <script>
@@ -138,6 +155,33 @@
                 closeModal();
             }
         });
+
+        // Mobile navigation tab functionality
+        const mobileNavTab = document.getElementById('mobileNavTab');
+        const mobileFooter = document.getElementById('mobileFooter');
+        const navIcon = mobileNavTab.querySelector('i');
+        let isOpen = false;
+
+        mobileNavTab.addEventListener('click', () => {
+            const footerHeight = mobileFooter.offsetHeight;
+            if (isOpen) {
+                mobileFooter.style.transform = 'translateY(100%)';
+                mobileNavTab.style.bottom = '20px';
+                navIcon.style.transform = 'translate(-50%, -50%) rotate(0deg)';
+                mobileNavTab.style.backgroundColor = 'rgba(154, 154, 154, 0.085)'; // Return to translucent
+            } else {
+                mobileFooter.style.transform = 'translateY(0)';
+                mobileNavTab.style.bottom = `${footerHeight + 20}px`;
+                navIcon.style.transform = 'translate(-50%, -50%) rotate(180deg)';
+                mobileNavTab.style.backgroundColor = 'white'; // Change to white when opened
+            }
+            isOpen = !isOpen;
+        });
     </script>
+
+    <footer>
+        <p>&copy; 2024 That (Phukao) Prommolmard. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Phukao</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
+<body class="index-page">
     <header>
         <nav>
             <ul>
-                <li><a href="designs"><img src="images/designButton.png" alt="Designs"></a></li>
-                <li><a href="research"><img src="images/researchButton.png" alt="Research"></a></li>
-                <li><a href="contact"><img src="images/contactButton.png" alt="Contact"></a></li>
+                <li><a href="designs.html"><img src="images/designButton.png" alt="Designs"></a></li>
+                <li><a href="research.html"><img src="images/researchButton.png" alt="Research"></a></li>
+                <li><a href="contact.html"><img src="images/contactButton.png" alt="Contact"></a></li>
             </ul>
         </nav>
     </header>    
@@ -22,6 +23,44 @@
         <img src="images/Name.png" class="name-container" alt="That Phukao Prommolmard">
     </div>
     
+
+    <div id="mobileNavTab" class="mobile-nav-tab">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <footer id="mobileFooter" class="mobile-footer">
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="designs.html"><img src="images/designButton.png" alt="Designs"></a></li>
+                <li><a href="research.html"><img src="images/researchButton.png" alt="Research"></a></li>
+                <li><a href="contact.html"><img src="images/contactButton.png" alt="Contact"></a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script>
+        // Mobile navigation tab functionality
+        const mobileNavTab = document.getElementById('mobileNavTab');
+        const mobileFooter = document.getElementById('mobileFooter');
+        const navIcon = mobileNavTab.querySelector('i');
+        let isOpen = false;
+
+        mobileNavTab.addEventListener('click', () => {
+            const footerHeight = mobileFooter.offsetHeight;
+            if (isOpen) {
+                mobileFooter.style.transform = 'translateY(100%)';
+                mobileNavTab.style.bottom = '20px';
+                navIcon.style.transform = 'translate(-50%, -50%) rotate(0deg)';
+                mobileNavTab.style.backgroundColor = 'rgba(154, 154, 154, 0.085)'; // Return to translucent
+            } else {
+                mobileFooter.style.transform = 'translateY(0)';
+                mobileNavTab.style.bottom = `${footerHeight + 20}px`;
+                navIcon.style.transform = 'translate(-50%, -50%) rotate(180deg)';
+                mobileNavTab.style.backgroundColor = 'white'; // Change to white when opened
+            }
+            isOpen = !isOpen;
+        });
+    </script>
 
     <footer>
         <p>&copy; 2024 That (Phukao) Prommolmard. All rights reserved.</p>
