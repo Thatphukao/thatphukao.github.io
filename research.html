@@ -7,21 +7,47 @@
     <title>Research - Phukao</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .main-content {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+            padding: 40px 25%;
+            font-size: 1.2em;
+        }
+        .main-content h2 {
+            text-align: center;
+        }
+        .main-content img {
+            display: block;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="designs.html"><img src="images/designButton.png"></a></li>
-                <li><a href="index.html"><img src="images/homeButton.png"></a></li>
-                <li><a href="contact.html"><img src="images/contactButton.png"></a></li>
+                <li><a href="designs.html"><img src="images/designButton.png" alt="Designs"></a></li>
+                <li><a href="index.html"><img src="images/homeButton.png" alt="Home"></a></li>
+                <li><a href="contact.html"><img src="images/contactButton.png" alt="Contact"></a></li>
             </ul>
         </nav>
     </header>
 
     <div class="main-content">
-        <p>Welcome to my research page. I will put my work up soon! -10.18.24.</p>
-        <!-- Add design content here -->
+        <h2>Analyzing Electoral Fairness in Thailand</h2>
+
+        <p>In this project, I examined the fairness of electoral redistricting in Thailand’s 2023 general election. After a military coup in 2014, the proportion of seats in the house of representatives changed. In 2023, the number of lower house representatives lowered from 400 to 350. A controversial provision allowed the Election Commission to redraw district boundaries unilaterally. Some suspects this could have the same effect as gerrymandering, so I decided to rethink gerrymandering analysis to apply to Thailand. Under the guidance of Dr. Eric Autry, I used the Metropolized Forest Recombination algorithm to generate millions of valid redistricting plans and simulate election outcomes. These simulations allowed me to evaluate whether the enacted district plan was an outlier and potentially unfair.</p>
+
+        <p>To support this analysis, I spent months manually processing over 8,900 scanned PDFs to extract subdistrict-level election results. Thailand’s Election Commission does not publish voting data at a consistent or usable level of detail, so I had to derive the necessary datasets by parsing and cleaning raw scans. Many of the documents were blurry, poorly formatted, or incomplete. Despite all this, I was able to align geographic boundaries with real voting behavior, which is essential for evaluating how redistricting affects electoral outcomes. I then ran simulations that analyzed district compactness, population balance, and partisan bias across the generated plans.</p>
+
+        <p>I learned that a reproducible framework for examining fairness in multi-party systems could work for countries with a voting system that allows for more than 2 parties. I presented my findings at the 2025 Joint Mathematics Meetings and am working to expand the tool to other provinces with higher voting variation and potentially other countries. I hope that this work can help policymakers, advocates, and the public make sense of complex redistricting systems and hold authorities accountable when fairness is compromised.</p>
+
+        <p>Below is the poster I made for JMM 2025. Feel free to read them!</p>
+
+        <img src="images/research/JMMPoster.jpeg" alt="Poster: Analyzing Electoral Fairness in Thailand">
     </div>
 
     <div id="mobileNavTab" class="mobile-nav-tab">
@@ -39,7 +65,6 @@
     </footer>
 
     <script>
-        // Mobile navigation tab functionality
         const mobileNavTab = document.getElementById('mobileNavTab');
         const mobileFooter = document.getElementById('mobileFooter');
         const navIcon = mobileNavTab.querySelector('i');
@@ -51,12 +76,12 @@
                 mobileFooter.style.transform = 'translateY(100%)';
                 mobileNavTab.style.bottom = '20px';
                 navIcon.style.transform = 'translate(-50%, -50%) rotate(0deg)';
-                mobileNavTab.style.backgroundColor = 'rgba(154, 154, 154, 0.085)'; // Return to translucent
+                mobileNavTab.style.backgroundColor = 'rgba(154, 154, 154, 0.085)';
             } else {
                 mobileFooter.style.transform = 'translateY(0)';
                 mobileNavTab.style.bottom = `${footerHeight + 20}px`;
                 navIcon.style.transform = 'translate(-50%, -50%) rotate(180deg)';
-                mobileNavTab.style.backgroundColor = 'white'; // Change to white when opened
+                mobileNavTab.style.backgroundColor = 'white';
             }
             isOpen = !isOpen;
         });
